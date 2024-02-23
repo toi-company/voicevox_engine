@@ -20,52 +20,7 @@ class MockCoreWrapper(CoreWrapper):
         self.default_sampling_rate = 24000
 
     def metas(self) -> str:
-        return json.dumps(
-            [
-                # トーク２つ・ハミング２つ
-                {
-                    "name": "dummy1",
-                    "styles": [
-                        {"name": "style0", "id": 0},
-                        {"name": "style1", "id": 2},
-                        {"name": "style2", "id": 4, "type": "frame_decode"},
-                        {"name": "style3", "id": 6, "type": "frame_decode"},
-                    ],
-                    "speaker_uuid": "7ffcb7ce-00ec-4bdc-82cd-45a8889e43ff",
-                    "version": "mock",
-                },
-                # トーク２つ・ハミング１つ・ソング１つ
-                {
-                    "name": "dummy2",
-                    "styles": [
-                        {"name": "style0", "id": 1},
-                        {"name": "style1", "id": 3},
-                        {"name": "style2", "id": 5, "type": "frame_decode"},
-                        {"name": "style3", "id": 7, "type": "sing"},
-                    ],
-                    "speaker_uuid": "388f246b-8c41-4ac1-8e2d-5d79f3ff56d9",
-                    "version": "mock",
-                },
-                # トーク１つ
-                {
-                    "name": "dummy3",
-                    "styles": [
-                        {"name": "style0", "id": 8},
-                    ],
-                    "speaker_uuid": "35b2c544-660e-401e-b503-0e14c635303a",
-                    "version": "mock",
-                },
-                # ソング１つ
-                {
-                    "name": "dummy4",
-                    "styles": [
-                        {"name": "style0", "id": 9, "type": "sing"},
-                    ],
-                    "speaker_uuid": "b1a81618-b27b-40d2-b0ea-27a9ad408c4b",
-                    "version": "mock",
-                },
-            ]
-        )
+        return json.dumps(MetaManager().get_metas_dict())
 
     def yukarin_s_forward(
         self, length: int, phoneme_list: NDArray[np.int64], style_id: NDArray[np.int64]
