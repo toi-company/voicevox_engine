@@ -77,7 +77,7 @@ def initialize_cores(
     # コアをロードし `cores` へ登録する
     cores: dict[str, CoreAdapter] = {}
 
-    if not enable_mock:
+    if not True:
 
         def load_core_library(core_dir: Path, suppress_error: bool = False) -> None:
             """
