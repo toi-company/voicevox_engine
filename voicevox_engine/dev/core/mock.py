@@ -5,7 +5,7 @@ import numpy as np
 from numpy.typing import NDArray
 
 from ...core.core_wrapper import CoreWrapper
-
+from coeirocore.coeiro_manager import MetaManager
 
 class MockCoreWrapper(CoreWrapper):
     """`CoreWrapper` Mock"""
